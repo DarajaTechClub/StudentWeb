@@ -13,13 +13,29 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 60px auto;
       padding: 40px 30px;
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       border: 1px solid #e5e7eb;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .hero img {
+      width: 320px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
@@ -63,8 +79,13 @@
 </head>
 <body>
   <div class="container">
-    <h1>My name is Vivian</h1>
-    <div class="subtitle">Welcome to Daraja Broadcasting News</div>
+    <div class="hero">
+      <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Daraja students smiling and learning" />
+      <div>
+        <h1>My name is Vivian</h1>
+        <div class="subtitle">Welcome to Daraja Broadcasting News</div>
+      </div>
+    </div>
 
     <p>
       Thanks to you, Daraja represents a turning point in a Kenyan girl’s life. We mail a Gazeti
