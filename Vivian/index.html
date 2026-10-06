@@ -5,97 +5,282 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daraja Broadcasting News</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #f5f0ff, #ffffff);
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #3d7a4f 100%);
       color: #1f2937;
+      min-height: 100vh;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 40px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
       background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
     }
 
-    .hero {
+    .header {
+      background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      letter-spacing: 0.5px;
+    }
+
+    .content {
+      padding: 60px 40px;
+    }
+
+    .hero-section {
       display: flex;
       align-items: center;
-      gap: 30px;
-      margin-bottom: 25px;
+      gap: 40px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
     }
 
-    .hero img {
-      width: 320px;
-      height: 240px;
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
       object-fit: cover;
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 35px rgba(26, 71, 42, 0.2);
     }
 
-    h1 {
-      font-size: 2.5rem;
-      color: #4c1d95;
-      margin-bottom: 10px;
-      text-align: center;
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 1.3rem;
-      color: #6b7280;
-      margin-bottom: 25px;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      text-align: justify;
+    .hero-text p {
+      font-size: 1.1rem;
+      line-height: 1.9;
       color: #374151;
+      margin-bottom: 25px;
+      text-align: justify;
     }
 
     .donate-btn {
       display: inline-block;
-      margin-top: 20px;
-      background: #7c3aed;
+      background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
       color: white;
-      padding: 12px 24px;
-      border-radius: 999px;
+      padding: 15px 40px;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s ease;
+      font-size: 1.05rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 20px rgba(26, 71, 42, 0.3);
     }
 
     .donate-btn:hover {
-      background: #6d28d9;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(26, 71, 42, 0.4);
+    }
+
+    .divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #1a472a, transparent);
+      margin: 50px 0;
+    }
+
+    .gazeti-section h2 {
+      font-size: 2.2rem;
+      color: #1a472a;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .gazeti-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .gazeti-card {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(26, 71, 42, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: 2px solid #1a472a;
+    }
+
+    .gazeti-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(26, 71, 42, 0.2);
+    }
+
+    .gazeti-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #1a472a;
+    }
+
+    .gazeti-info {
+      padding: 20px;
+    }
+
+    .gazeti-info h3 {
+      color: #1a472a;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .gazeti-info p {
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .gazeti-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #1a472a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .gazeti-link:hover {
+      color: #2d5a3d;
+      text-decoration: underline;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(26, 71, 42, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .footer-text {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 2px solid #e5e7eb;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="hero">
-      <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Daraja students smiling and learning" />
-      <div>
-        <h1>My name is Vivian</h1>
-        <div class="subtitle">Welcome to Daraja Broadcasting News</div>
-      </div>
+    <div class="header">
+      <h1>My name is Vivian</h1>
+      <p>Welcome to Daraja Broadcasting News</p>
     </div>
 
-    <p>
-      Thanks to you, Daraja represents a turning point in a Kenyan girl’s life. We mail a Gazeti
-      (our newsletter!) to our supporters three times a year to show gratitude and how much was made
-      possible with their support. Please enjoy a digital look at some of our past Gazetis below.
-      If you would like to partner with Daraja to make girls’ education a reality, donate directly to a
-      girl’s education using the button below. Thank you for being a part of the Daraja family!
-    </p>
+    <div class="content">
+      <div class="hero-section">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Daraja students smiling and learning together" />
+        </div>
+        <div class="hero-text">
+          <p>
+            Thanks to you, Daraja represents a turning point in a Kenyan girl's life. We mail a Gazeti
+            (our newsletter!) to our supporters three times a year to show gratitude and how much was made
+            possible with their support. Please enjoy a digital look at some of our past Gazetis below.
+            If you would like to partner with Daraja to make girls' education a reality, donate directly to a
+            girl's education using the button below. Thank you for being a part of the Daraja family!
+          </p>
+          <a href="https://www.darajakenya.org/donate" class="donate-btn">Donate to Daraja</a>
+        </div>
+      </div>
 
-    <a href="#" class="donate-btn">Donate Now</a>
+      <div class="divider"></div>
+
+      <div class="gazeti-section">
+        <h2>📰 Gazeti Archive</h2>
+        <div class="gazeti-gallery">
+          <div class="gazeti-card">
+            <img src="https://images.unsplash.com/photo-1491841573634-28fb1df537d1?auto=format&fit=crop&w=400&q=80" alt="Gazeti 2024 Vol. 3" class="gazeti-image" />
+            <div class="gazeti-info">
+              <h3>Gazeti 2024 - Vol. 3</h3>
+              <p>Fall 2024 newsletter featuring student success stories and impact updates from our community.</p>
+              <a href="#" class="gazeti-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="gazeti-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" alt="Gazeti 2024 Vol. 2" class="gazeti-image" />
+            <div class="gazeti-info">
+              <h3>Gazeti 2024 - Vol. 2</h3>
+              <p>Summer 2024 edition highlighting scholarship recipients and their academic achievements.</p>
+              <a href="#" class="gazeti-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="gazeti-card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Gazeti 2024 Vol. 1" class="gazeti-image" />
+            <div class="gazeti-info">
+              <h3>Gazeti 2024 - Vol. 1</h3>
+              <p>Spring 2024 newsletter showcasing mentorship programs and community partnerships.</p>
+              <a href="#" class="gazeti-link">Read More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <h2 style="font-size: 2.2rem; color: #1a472a; margin-bottom: 30px; text-align: center; font-weight: 700;">📸 Photo Gallery</h2>
+        <div class="photo-gallery">
+          <img src="https://images.unsplash.com/photo-1427504494785-cdba58dabf8d?auto=format&fit=crop&w=400&q=80" alt="Students in classroom" />
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80" alt="Girl smiling at school" />
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Students studying together" />
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Education in Kenya" />
+        </div>
+      </div>
+
+      <div class="footer-text">
+        <p>© 2024 Daraja Tech Club. Empowering Kenyan girls through education and technology.</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
